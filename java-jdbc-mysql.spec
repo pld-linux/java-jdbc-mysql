@@ -5,7 +5,7 @@ Version:	3.1.10
 Release:	0.1
 License:	GPL v2+ + MySQL FLOSS Exception
 Group:		Libraries
-Source0:	http://mysql.mirror.ok.ee/Downloads/Connector-J/mysql-connector-java-3.1.10.tar.gz
+Source0:	http://mysql.mirror.ok.ee/Downloads/Connector-J/%{name}ava-%{version}.tar.gz
 # Source0-md5:	337f7f31e726fb615d3f4f062030d1b5
 URL:		http://www.mysql.com/products/connector/j/
 %{!?with_bindist:BuildRequires:  jakarta-ant >= 1.5}
@@ -21,7 +21,7 @@ and connect all corporate data, even in a heterogeneous environment.
 MySQL Connector/J is a Type IV JDBC driver and has a complete JDBC
 feature set that supports the capabilities of MySQL.
 
-MySQL Connector/J is the official JDBC driver for MySQL. 
+MySQL Connector/J is the official JDBC driver for MySQL.
 
 %package doc
 Summary:	Documentation for MySQL Connector/J
@@ -58,4 +58,4 @@ rm -rf $RPM_BUILD_ROOT
 
 %files doc
 %defattr(644,root,root,755)
-%doc docs
+%doc docs/*
