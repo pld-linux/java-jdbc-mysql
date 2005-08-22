@@ -21,6 +21,8 @@ and connect all corporate data, even in a heterogeneous environment.
 MySQL Connector/J is a Type IV JDBC driver and has a complete JDBC
 feature set that supports the capabilities of MySQL.
 
+MySQL Connector/J is the official JDBC driver for MySQL. 
+
 %package doc
 Summary:	Documentation for MySQL Connector/J
 Group:		Documentation
