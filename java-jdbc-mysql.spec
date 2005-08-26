@@ -1,5 +1,9 @@
+#
+# Conditional build:
 %bcond_without	bindist		# don't use binary distribution (not finished)
-Summary:	MySQL Connector/J
+#
+Summary:	MySQL Connector/J - JDBC driver for MySQL
+Summary(pl):	MySQL Connector/J - sterownik JDBC dla MySQL-a
 Name:		mysql-connector-j
 Version:	3.1.10
 Release:	0.1
@@ -23,12 +27,27 @@ feature set that supports the capabilities of MySQL.
 
 MySQL Connector/J is the official JDBC driver for MySQL.
 
+%description -l pl
+MySQL Connector/J to natywny sterownik Javy konwertuj±cy wywo³ania
+JDBC (Java Database Connectivity) na protokó³ sieciowy u¿ywany przez
+bazê danych MySQL. Pozwala programistom pracowaæ z u¿yciem jêzyka
+programowania Java ³atwo tworz±c programy i aplety wspó³pracuj±ce z
+MySQL-em i ³±czyæ wszystkie zbiorcze dane, nawet w ¶rodowisku
+heterogenicznym. MySQL Connector/J jest sterownikiem JDBC typu IV i ma
+pe³ny zbiór mo¿liwo¶ci JDBC obs³uguj±cy MySQL-a.
+
+MySQL Connector/J to oficjalny sterownik JDBC dla MySQL-a.
+
 %package doc
 Summary:	Documentation for MySQL Connector/J
+Summary(pl):	Dokumentacja dla MySQL Connector/J
 Group:		Documentation
 
 %description doc
 Documentation for MySQL Connector/J.
+
+%description doc -l pl
+Dokumentacja dla MySQL Connector/J.
 
 %prep
 %setup -q -n mysql-connector-java-%{version}
