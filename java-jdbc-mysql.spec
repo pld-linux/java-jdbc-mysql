@@ -2,7 +2,7 @@ Summary:	MySQL Connector/J - JDBC driver for MySQL
 Summary(pl):	MySQL Connector/J - sterownik JDBC dla MySQL-a
 Name:		mysql-connector-j
 Version:	3.1.13
-Release:	0.2
+Release:	1
 License:	GPL v2+ + MySQL FLOSS Exception
 Group:		Libraries
 Source0:	http://mysql.tonnikala.org/Downloads/Connector-J/%{name}ava-%{version}.tar.gz
