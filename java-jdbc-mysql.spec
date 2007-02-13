@@ -1,5 +1,5 @@
 Summary:	MySQL Connector/J - JDBC driver for MySQL
-Summary(pl.UTF-8):   MySQL Connector/J - sterownik JDBC dla MySQL-a
+Summary(pl.UTF-8):	MySQL Connector/J - sterownik JDBC dla MySQL-a
 Name:		mysql-connector-j
 Version:	5.0.4
 Release:	1
@@ -39,7 +39,7 @@ MySQL Connector/J to oficjalny sterownik JDBC dla MySQL-a.
 
 %package doc
 Summary:	Documentation for MySQL Connector/J
-Summary(pl.UTF-8):   Dokumentacja dla MySQL Connector/J
+Summary(pl.UTF-8):	Dokumentacja dla MySQL Connector/J
 Group:		Documentation
 
 %description doc
