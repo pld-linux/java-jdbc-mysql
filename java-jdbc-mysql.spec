@@ -1,16 +1,18 @@
+%include	/usr/lib/rpm/macros.java
 Summary:	MySQL Connector/J - JDBC driver for MySQL
 Summary(pl.UTF-8):	MySQL Connector/J - sterownik JDBC dla MySQL-a
 Name:		mysql-connector-j
-Version:	5.0.4
+Version:	5.0.6
 Release:	1
 License:	GPL v2+ + MySQL FLOSS Exception
 Group:		Libraries
 Source0:	http://mysql.tonnikala.org/Downloads/Connector-J/%{name}ava-%{version}.tar.gz
-# Source0-md5:	fac72ed39a0533e2b0632495902fd3f1
+# Source0-md5:	060cd1ac485d9cc544dd7334d47ff67d
 URL:		http://www.mysql.com/products/connector/j/
 BuildRequires:	ant >= 1.5
 BuildRequires:	jaxp_parser_impl
 BuildRequires:	jpackage-utils
+BuildRequires:	rpm-javaprov
 BuildRequires:	rpmbuild(macros) >= 1.300
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -51,13 +53,11 @@ Dokumentacja dla MySQL Connector/J.
 %prep
 %setup -q -n %{name}ava-%{version}
 rm -f docs/README # duplicate
-# don't package it with docs
-mv docs/release-test-output .
 
 %build
 export JAVA_HOME="%{java_home}"
 required_jars='jaxp_parser_impl'
-export CLASSPATH="$(%{_bindir}/build-classpath $required_jars)"
+export CLASSPATH=$(build-classpath $required_jars)
 %ant
 
 %install
