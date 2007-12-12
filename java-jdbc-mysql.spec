@@ -3,7 +3,7 @@ Summary:	MySQL Connector/J - JDBC driver for MySQL
 Summary(pl.UTF-8):	MySQL Connector/J - sterownik JDBC dla MySQL-a
 Name:		mysql-connector-j
 Version:	5.0.8
-Release:	1
+Release:	2
 License:	GPL v2+ + MySQL FLOSS Exception
 Group:		Libraries
 Source0:	http://mysql.tonnikala.org/Downloads/Connector-J/%{name}ava-%{version}.tar.gz
@@ -14,6 +14,7 @@ BuildRequires:	jaxp_parser_impl
 BuildRequires:	jpackage-utils
 BuildRequires:	rpm-javaprov
 BuildRequires:	rpmbuild(macros) >= 1.300
+Requires:	jpackage-utils
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -52,21 +53,22 @@ Dokumentacja dla MySQL Connector/J.
 
 %prep
 %setup -q -n %{name}ava-%{version}
-rm -f docs/README # duplicate
+rm docs/README
 
 %build
-export JAVA_HOME="%{java_home}"
-required_jars='jaxp_parser_impl'
-export CLASSPATH=$(build-classpath $required_jars)
+required_jars="jaxp_parser_impl"
+CLASSPATH=$(build-classpath $required_jars)
+export CLASSPATH
 %ant
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT{%{_javadir},%{_examplesdir},%{_javadocdir}/%{name}-%{version}}
+install -d $RPM_BUILD_ROOT%{_javadir}
 
+# jars
 install build/mysql-connector-java-%{version}/mysql-connector-java-%{version}-bin.jar \
 	$RPM_BUILD_ROOT%{_javadir}/mysql-connector-java-%{version}.jar
-ln -sf mysql-connector-java-%{version}.jar $RPM_BUILD_ROOT%{_javadir}/mysql-connector-java.jar
+ln -s mysql-connector-java-%{version}.jar $RPM_BUILD_ROOT%{_javadir}/mysql-connector-java.jar
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -74,7 +76,7 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644,root,root,755)
 %doc CHANGES EXCEPTIONS-CONNECTOR-J README
-%{_javadir}/*
+%{_javadir}/*.jar
 
 %files doc
 %defattr(644,root,root,755)
