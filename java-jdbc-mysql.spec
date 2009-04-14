@@ -6,7 +6,7 @@ Summary:	MySQL Connector/J - JDBC driver for MySQL
 Summary(pl.UTF-8):	MySQL Connector/J - sterownik JDBC dla MySQL-a
 Name:		java-jdbc-mysql
 Version:	5.1.7
-Release:	1
+Release:	2
 License:	GPL v2+ + MySQL FLOSS Exception
 Group:		Libraries/Java
 Source0:	http://sunsite.informatik.rwth-aachen.de/mysql/Downloads/Connector-J/mysql-connector-java-5.1.7.tar.gz
@@ -67,6 +67,7 @@ install -d $RPM_BUILD_ROOT%{_javadir}
 install mysql-connector-java-%{version}-bin.jar \
 	$RPM_BUILD_ROOT%{_javadir}/mysql-connector-java-%{version}.jar
 ln -s mysql-connector-java-%{version}.jar $RPM_BUILD_ROOT%{_javadir}/mysql-connector-java.jar
+ln -s mysql-connector-java-%{version}.jar $RPM_BUILD_ROOT%{_javadir}/jdbc-mysql.jar
 
 %clean
 rm -rf $RPM_BUILD_ROOT
