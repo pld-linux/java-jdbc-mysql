@@ -1,20 +1,24 @@
 %include	/usr/lib/rpm/macros.java
 Summary:	MySQL Connector/J - JDBC driver for MySQL
 Summary(pl.UTF-8):	MySQL Connector/J - sterownik JDBC dla MySQL-a
-Name:		mysql-connector-j
-Version:	5.0.8
-Release:	2
+Name:		java-jdbc-mysql
+Version:	5.1.7
+Release:	0.1
 License:	GPL v2+ + MySQL FLOSS Exception
-Group:		Libraries
-Source0:	http://mysql.tonnikala.org/Downloads/Connector-J/%{name}ava-%{version}.tar.gz
-# Source0-md5:	7a3caaa764fd6266bc312d8930972e8f
+Group:		Libraries/Java
+Source0:	http://sunsite.informatik.rwth-aachen.de/mysql/Downloads/Connector-J/mysql-connector-java-5.1.7.tar.gz
+# Source0-md5:	5150e0a6cc4b4487e1f9134659e466c2
 URL:		http://www.mysql.com/products/connector/j/
 BuildRequires:	ant >= 1.5
+BuildRequires:	java-sun >= 1.5
 BuildRequires:	jaxp_parser_impl
 BuildRequires:	jpackage-utils
+BuildRequires:	rpm >= 4.4.9-56
 BuildRequires:	rpm-javaprov
 BuildRequires:	rpmbuild(macros) >= 1.300
 Requires:	jpackage-utils
+Provides:	mysql-connector-j
+Obsoletes:	mysql-connector-j
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -44,6 +48,7 @@ MySQL Connector/J to oficjalny sterownik JDBC dla MySQL-a.
 Summary:	Documentation for MySQL Connector/J
 Summary(pl.UTF-8):	Dokumentacja dla MySQL Connector/J
 Group:		Documentation
+Obsoletes:	mysql-connector-j
 
 %description doc
 Documentation for MySQL Connector/J.
@@ -52,7 +57,7 @@ Documentation for MySQL Connector/J.
 Dokumentacja dla MySQL Connector/J.
 
 %prep
-%setup -q -n %{name}ava-%{version}
+%setup -q -n mysql-connector-java-%{version}
 rm docs/README
 
 %build
