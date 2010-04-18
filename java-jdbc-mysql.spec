@@ -9,7 +9,7 @@ Version:	5.1.7
 Release:	2
 License:	GPL v2+ + MySQL FLOSS Exception
 Group:		Libraries/Java
-Source0:	http://sunsite.informatik.rwth-aachen.de/mysql/Downloads/Connector-J/mysql-connector-java-5.1.7.tar.gz
+Source0:	http://sunsite.informatik.rwth-aachen.de/mysql/Downloads/Connector-J/mysql-connector-java-%{version}.tar.gz
 # Source0-md5:	5150e0a6cc4b4487e1f9134659e466c2
 URL:		http://www.mysql.com/products/connector/j/
 BuildRequires:	jpackage-utils
