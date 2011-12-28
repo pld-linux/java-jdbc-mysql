@@ -5,12 +5,12 @@
 Summary:	MySQL Connector/J - JDBC driver for MySQL
 Summary(pl.UTF-8):	MySQL Connector/J - sterownik JDBC dla MySQL-a
 Name:		java-jdbc-mysql
-Version:	5.1.7
-Release:	2
+Version:	5.1.18
+Release:	1
 License:	GPL v2+ + MySQL FLOSS Exception
 Group:		Libraries/Java
-Source0:	http://sunsite.informatik.rwth-aachen.de/mysql/Downloads/Connector-J/mysql-connector-java-%{version}.tar.gz
-# Source0-md5:	5150e0a6cc4b4487e1f9134659e466c2
+Source0:	http://sunsite.icm.edu.pl/mysql/Downloads/Connector-J/mysql-connector-java-%{version}.tar.gz
+# Source0-md5:	e152392e38977b596a877b3530a407a6
 URL:		http://www.mysql.com/products/connector/j/
 BuildRequires:	jpackage-utils
 BuildRequires:	rpm-javaprov
@@ -57,14 +57,14 @@ Dokumentacja dla MySQL Connector/J.
 
 %prep
 %setup -q -n mysql-connector-java-%{version}
-rm docs/README
+rm docs/README.txt
 
 %install
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT%{_javadir}
 
 # jars
-install mysql-connector-java-%{version}-bin.jar \
+cp -p mysql-connector-java-%{version}-bin.jar \
 	$RPM_BUILD_ROOT%{_javadir}/mysql-connector-java-%{version}.jar
 ln -s mysql-connector-java-%{version}.jar $RPM_BUILD_ROOT%{_javadir}/mysql-connector-java.jar
 ln -s mysql-connector-java-%{version}.jar $RPM_BUILD_ROOT%{_javadir}/jdbc-mysql.jar
@@ -74,7 +74,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc CHANGES EXCEPTIONS-CONNECTOR-J README
+%doc CHANGES README
 %{_javadir}/*.jar
 
 %files doc
