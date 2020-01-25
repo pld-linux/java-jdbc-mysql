@@ -1,7 +1,6 @@
 # NOTE:
 # - don't even try to compile it from source. It requires compiler from
 #   java-sun = 1.5 AND rt.jar from java-sun-jre = 1.6
-%include	/usr/lib/rpm/macros.java
 Summary:	MySQL Connector/J - JDBC driver for MySQL
 Summary(pl.UTF-8):	MySQL Connector/J - sterownik JDBC dla MySQL-a
 Name:		java-jdbc-mysql
